@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/16/trunk/nfex_exe_pp/include
+END
+pe32.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/16/trunk/nfex_exe_pp/include/pe32.h
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/17/trunk/nfex_exe_pp/include/config.h.in
+END

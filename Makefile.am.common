@@ -1,0 +1,10 @@
+# $Id: Makefile.am.common,v 1.3 2004/01/03 20:31:00 mike Exp $
+#
+# Libnet automake information file
+# Copyright (c) 1998 - 2010 Mike D. Schiffman <mike_schiffman@hotmail.com>
+# All rights reserved.
+#
+
+AUTOMAKE_OPTIONS = foreign no-dependencies
+
+DISTCLEANFILES = *~ a.out*

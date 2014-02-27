@@ -1,0 +1,42 @@
+AC_INIT(src/extract.c)
+AM_INIT_AUTOMAKE(nfex, 2.5)
+AC_CANONICAL_HOST
+AM_CONFIG_HEADER([include/config.h])
+
+CFLAGS="$CFLAGS -ggdb"
+dnl CFLAGS="$CFLAGS"
+
+AC_PROG_CC
+AC_PROG_AWK
+AC_PROG_YACC
+AC_PROG_LEX
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
+
+AC_MSG_CHECKING(whether to enable debugging)
+debug_default="no"
+AC_ARG_ENABLE(debug, [  --enable-debug=[no/yes] turn on debugging
+                       [default=$debug_default]],, enable_debug=$debug_default)
+if test "x$enable_debug" = "xyes"; then
+         CFLAGS="$CFLAGS -ggdb -DDEBUG_MODE"
+AC_MSG_RESULT(yes)
+else
+AC_MSG_RESULT(no (to enable debugging configure with --enable-debug=yes))
+fi
+
+AC_CHECK_LIB(fl, main)
+AC_SEARCH_LIBS([floor], [m])
+AC_SEARCH_LIBS([pcap_open_live], [pcap], , 
+               [AC_MSG_RESULT(pcap not found, goto: http://www.tcpdump.org)])
+AC_SEARCH_LIBS([libnet_init], [net], ,
+               [AC_MSG_RESULT(libnet not found, goto: ?)])
+AC_SEARCH_LIBS([event_base_new], [event], 
+               [AC_DEFINE(HAVE_LIBEVENT, 1, [Define if system has libevent])],
+               [AC_MSG_RESULT(libevent not found, if you want fastest possible event notification, please install: http://monkey.org/~provos/libevent/)])
+AC_SEARCH_LIBS([GeoIP_open], [GeoIP], 
+               [AC_DEFINE(HAVE_GEOIP, 1, [Define if system has MaxMind GeoIP])],
+               [AC_MSG_RESULT(MaxMind GeoIP not found, if you want GeoIP lookup, please install: http://www.maxmind.com/app/geolitecity)])
+AC_HEADER_STDC
+		
+AC_OUTPUT(Makefile src/Makefile include/version.h)

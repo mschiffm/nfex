@@ -1,0 +1,64 @@
+.\"
+.\" nfex manpage
+.\"
+.\" 2009, 2010 Mike Schiffman <mschiffm@cisco.com> 
+.\"
+.\" Copyright (c) 2010 by Cisco Systems, Inc.
+.\" All rights reserved.
+.\" Based off of tcpxtract by Nicholas Harbour.
+.\"
+
+.TH NFEX 1 "Thu Apr  8 11:10:04 PDT 2010" "nfex"
+.SH NAME
+nfex \- Network File EXtractor
+.SH SYNOPSIS
+.B nfex
+[\-fdcohv]
+.if n .ti +5n
+.SH DESCRIPTION
+nfex is tool for extracing files from TCP streams. It is based off of 
+(the defunct) tcpxtract by Nicholas Harbour. It pulls files from the network
+(untested) or from pcap dump files (tested). It offers a tunable configuration
+file that instructs the search and extraction code what sort of files to flag
+and extract. It also offers a few enhancements over tcpxtract including several
+bugfixes and an asynchronous interface to the user to allow for real-time
+status and progress queries. The tool is still very much in development and 
+any patches or add-ons are welcomed.
+
+.SH COMMAND-LINE OPTIONS
+If an option takes an argument, it procedes the option letter, with the
+default in parenthesis.
+.TP 15
+.B \-f file
+Specify path to the pcap dump file to read from. Mutually exclusive with
+the -d switch
+.TP 15
+.B \-d device
+Specify the network interface device to use if you're doing live 
+capture. Mutally exclusive with the -f switch.
+.TP
+.B \-o directory
+Specify a directory path to write extracted files to (default is cwd).
+.TP
+.B \-h
+help
+.TP
+.B \-v
+Version. Dump program version and exit.
+
+.SH CONFIGURATION FILE
+.LP
+nfex employs a simple configuration file,
+.B
+nfex.xml
+
+.SH SEE ALSO
+.LP
+pcap(3)
+.SH AUTHOR
+.LP
+Mike D. Schiffman <mschiffm@cisco.com>
+Nicholas Harbour ?
+.SH BUGS
+.LP
+Please send bug reports to mschiffm@cisco.com

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/18/trunk/nfex_exe_pp/src/md5
+END
+global.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/18/trunk/nfex_exe_pp/src/md5/global.h
+END
+md5.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/18/trunk/nfex_exe_pp/src/md5/md5.h
+END
+mddriver.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/18/trunk/nfex_exe_pp/src/md5/mddriver.c
+END
